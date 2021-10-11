@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Grupo2_ToppinoMariano_FacundoSafe_FedericoPrado</RootNamespace>
+  </PropertyGroup>
+
+</Project>
