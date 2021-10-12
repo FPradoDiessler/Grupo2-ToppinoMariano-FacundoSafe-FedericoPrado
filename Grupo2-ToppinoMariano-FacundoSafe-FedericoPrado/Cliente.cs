@@ -54,6 +54,11 @@ namespace Grupo2_ToppinoMariano_FacundoSafe_FedericoPrado
             this.mediosDePago.Add(new Efectivo());
         }
 
+        /// <summary>
+        /// me falta este
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         private string ValidarEmail(string email)
         {
             //me falta la lógica
@@ -63,7 +68,52 @@ namespace Grupo2_ToppinoMariano_FacundoSafe_FedericoPrado
 
         private string ValidarPass(string pass)
         {
-           
+            char[] vPass = pass.ToCharArray();
+
+            if (!ValidarLargoPass(vPass))
+            {
+                throw new ArgumentException("El largo de la contrasenia debe ser de 8 o más caracteres.");
+            }
+            if (!ValidarPassTieneMay(vPass))
+            {
+                throw new ArgumentException("Debe contener al menos 1 mayúscula.")
+            }
+
+            return pass;
+        }
+
+        /// <summary>
+        /// devuelve true si al menos un elemento del char[] esta en mayusculas.
+        /// </summary>
+        /// <param name="vPass"></param>
+        /// <returns></returns>
+        private Boolean ValidarPassTieneMay(char[] vPass)
+        {
+            bool res = false;
+            int i = 0;
+
+            while(i < vPass.Length && !res)
+            {
+                if (Char.IsUpper(vPass[i)){
+                    res = true;
+                }
+
+                i++;
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// devuelve true si es de 8 o mas
+        /// </summary>
+        /// <param name="vPass"></param>
+        /// <returns></returns>
+        private bool ValidarLargoPass(char[] vPass)
+        {
+            const int LARGO_MIN = 8;
+
+            return vPass.Length >= LARGO_MIN;
         }
 
         /// <summary>

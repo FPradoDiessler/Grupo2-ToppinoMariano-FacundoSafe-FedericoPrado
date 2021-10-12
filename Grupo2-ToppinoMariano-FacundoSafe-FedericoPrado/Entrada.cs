@@ -19,7 +19,26 @@ namespace Grupo2_ToppinoMariano_FacundoSafe_FedericoPrado
         public Funcion Funcion
         {
             get { return funcion};
-            set { if(this.funcion == null) { this.funcion = value; } }
+            set { SetAtt(this.funcion, value)}
+        }
+
+        public Asiento Asiento
+        {
+            get { return asiento };
+            set { SetAtt(this.asiento, value)}
+        }
+
+        /// <summary>
+        /// si x es null, se asigna y a x.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        private void SetAtt(var x, var y)
+        {
+            if(x == null)
+            {
+                x = y;
+            }
         }
     }
 }
