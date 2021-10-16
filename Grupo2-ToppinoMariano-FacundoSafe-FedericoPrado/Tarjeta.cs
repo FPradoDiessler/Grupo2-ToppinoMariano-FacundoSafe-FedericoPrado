@@ -54,7 +54,11 @@ namespace Grupo2_ToppinoMariano_FacundoSafe_FedericoPrado
         {
             DateTime fechaHoy = DateTime.Now;
 
-            if (DateTime.Compare(fechaParametro, fechaHoy) < 0)
+            if (fechaParametro == null)
+            {
+                throw new ArgumentException("La fecha de vencimiento no puede ser nula");
+            }
+            else if (DateTime.Compare(fechaParametro, fechaHoy) < 0)
             {
                 throw new ArgumentException("La tarjeta esta vencida");
             }
@@ -84,9 +88,9 @@ namespace Grupo2_ToppinoMariano_FacundoSafe_FedericoPrado
         private void setNombre(string nombre)
         {
 
-            if (nombre == "")
+            if (nombre == "" || nombre == null)
             {
-                throw new ArgumentException("El nombre no puede estar vacio")
+                throw new ArgumentException("El nombre no puede estar vacio");
             }
 
             this.nombre = nombre;
